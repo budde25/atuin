@@ -41,7 +41,6 @@ impl SqliteStore {
         }
 
         let opts = SqliteConnectOptions::from_str(path.as_os_str().to_str().unwrap())?
-            .journal_mode(SqliteJournalMode::Wal)
             .foreign_keys(true)
             .create_if_missing(true);
 

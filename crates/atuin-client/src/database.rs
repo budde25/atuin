@@ -138,9 +138,8 @@ impl Sqlite {
         }
 
         let opts = SqliteConnectOptions::from_str(path.as_os_str().to_str().unwrap())?
-            .journal_mode(SqliteJournalMode::Wal)
             .optimize_on_close(true, None)
-            .synchronous(SqliteSynchronous::Normal)
+            .synchronous(SqliteSynchronous::Full)
             .with_regexp()
             .create_if_missing(true);
 
